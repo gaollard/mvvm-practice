@@ -1,6 +1,6 @@
 /**
  * virtual dom abstract
- * @param { String } type 元素类型
+ * @param { String } type
  * @param { Object } props
  * @param { Arrary } children
  * For Exmaple: 
