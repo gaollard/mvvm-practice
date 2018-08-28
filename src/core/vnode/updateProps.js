@@ -40,6 +40,9 @@ export function updateProp($target, name, newVal, oldVal) {
   if (!newVal) {
     removeProp($target, name, oldVal);
   } else if (!oldVal || newVal !== oldVal) {
+    if (name === 'onClick') {
+      console.log('11')
+    }
     setProp($target, name, newVal);
   }
 }
