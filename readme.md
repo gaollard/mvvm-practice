@@ -9,4 +9,4 @@ mvvm
 - 构建 Virtual DOM  
 - DIFF Virtual DOM and Update  
 - Handler Props and Events  
-- 组件封装与应用  
+- 组件封装与应用实战
