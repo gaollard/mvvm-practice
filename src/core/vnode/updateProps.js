@@ -36,14 +36,33 @@ export function setProps($target, props) {
   }
 }
 
+function isEventProp (name) {
+  return /^on/.test(name)
+}
+
+function extractEventName (name) {
+  return name.slice(2).toLowerCase()
+}
+
 export function updateProp($target, name, newVal, oldVal) {
   if (!newVal) {
-    removeProp($target, name, oldVal);
-  } else if (!oldVal || newVal !== oldVal) {
-    if (name === 'onClick') {
-      console.log('11')
+    if (isEventProp(name)) {
+      $target.removeEventListener(
+        extractEventName(name),
+        oldVal
+      )
+    } else {
+      removeProp($target, name, oldVal);
     }
-    setProp($target, name, newVal);
+  } else if (!oldVal || newVal !== oldVal) {
+    if (isEventProp(name)) {
+      $target.addEventListener(
+        extractEventName(name),
+        newVal
+      )
+    } else {
+      setProp($target, name, newVal);
+    }
   }
 }
 

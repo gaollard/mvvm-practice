@@ -12,11 +12,25 @@ const oldNode = (
   </div>
 )
 
+function test () {
+  console.log(this)
+}
+const newTest = test.bind(window)
+
+// const newNode = (
+//   <div id="_Q6" style="border: 1px solid blue;">
+//       <div style="text-align: center; margin: 36px auto 18px; width: 160px; line-height: 0;">
+//           <img src="http://mall.airtlab.com/static/img/b1.524e4cf.jpg" width="100%" style="border: none; margin: 8px 0px;"></img>
+//           <p onClick={ newTest }>hello world!</p>
+//       </div>
+//   </div>
+// )
+
 const newNode = (
   <div id="_Q6" style="border: 1px solid blue;">
       <div style="text-align: center; margin: 36px auto 18px; width: 160px; line-height: 0;">
           <img src="http://mall.airtlab.com/static/img/b1.524e4cf.jpg" width="100%" style="border: none; margin: 8px 0px;"></img>
-          <p onClick={ () => { console.log(2) }}>hello world!</p>
+          <p>hello world!</p>
       </div>
   </div>
 )

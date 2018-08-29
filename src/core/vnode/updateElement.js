@@ -1,7 +1,6 @@
 import { isChanged } from './isChanged'
 import { createElement } from './createElement'
 import { updateProps } from './updateProps'
-import { addPropsEvents } from './eventProps'
 
 export function updateElement ($parentNode, newNode, oldNode, index = 0) {
   if (!newNode) {
@@ -21,7 +20,6 @@ export function updateElement ($parentNode, newNode, oldNode, index = 0) {
     const newLength = newNode.children.length
     const oldLength = oldNode.children.length
     updateProps($parentNode.childNodes[index], newNode.props, oldNode.props)
-    addPropsEvents($parentNode.childNodes[index], newNode.props)
     for (let i = 0; i < newLength || i < oldLength; i++) {
       updateElement(
         $parentNode.childNodes[index],
